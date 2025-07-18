@@ -90,7 +90,7 @@
 (require 'basm-mode)
 
 (require 'fasm-mode)
-(add-to-list 'auto-mode-alist '("\\.asm\\'" . fasm-mode))
+(add-to-list 'auto-mode-alist '("\\.asm\'" . fasm-mode))
 
 (require 'porth-mode)
 
@@ -99,8 +99,8 @@
 (require 'jai-mode)
 
 (require 'simpc-mode)
-(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-(add-to-list 'auto-mode-alist '("\\.[b]\\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\'" . simpc-mode))
+(add-to-list 'auto-mode-alist '("\\.[b]\'" . simpc-mode))
 
 (require 'c3-mode)
 
@@ -193,9 +193,9 @@
 (add-hook 'markdown-mode-hook 'rc/enable-word-wrap)
 
 ;;; nxml
-(add-to-list 'auto-mode-alist '("\\.html\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.xsd\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.ant\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.html\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.xsd\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.ant\'" . nxml-mode))
 
 ;;; tramp
 ;;; http://stackoverflow.com/questions/13794433/how-to-disable-autosave-for-tramp-buffers-in-emacs
@@ -203,8 +203,8 @@
 
 ;;; powershell
 (rc/require 'powershell)
-(add-to-list 'auto-mode-alist '("\\.ps1\\'" . powershell-mode))
-(add-to-list 'auto-mode-alist '("\\.psm1\\'" . powershell-mode))
+(add-to-list 'auto-mode-alist '("\\.ps1\'" . powershell-mode))
+(add-to-list 'auto-mode-alist '("\\.psm1\'" . powershell-mode))
 
 ;;; eldoc mode
 (defun rc/turn-on-eldoc-mode ()
@@ -226,7 +226,7 @@
 
 ;;; Typescript
 (rc/require 'typescript-mode)
-(add-to-list 'auto-mode-alist '("\\.mts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.mts\'" . typescript-mode))
 
 ;;; Tide
 (rc/require 'tide)
@@ -259,7 +259,7 @@
 (global-set-key (kbd "M-n") 'move-text-down)
 
 ;;; Ebisp
-(add-to-list 'auto-mode-alist '("\\.ebi\\'" . lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.ebi\'" . lisp-mode))
 
 ;;; Packages that don't require configuration
 (rc/require
@@ -320,7 +320,11 @@
 compilation-error-regexp-alist-alist
 
 (add-to-list 'compilation-error-regexp-alist
-             '("\\([a-zA-Z0-9\\.]+\\)(\\([0-9]+\\)\\(,\\([0-9]+\\)\\)?) \\(Warning:\\)?"
+             '("\\([a-zA-Z0-9\\.]+\\)(\\([0-9]+\\)\\(,\\([0-9]+\\)\\)?\\) \\(Warning:\\)?"
                1 2 (4) (5)))
+
+;;; Evil (Vim emulation)
+(rc/require 'evil)
+(evil-mode 1)
 
 (load-file custom-file)
