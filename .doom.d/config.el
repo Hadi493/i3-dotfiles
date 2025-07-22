@@ -68,7 +68,17 @@
       "w v" #'evil-window-vsplit
       "w s" #'evil-window-split
       "w d" #'delete-window
-      "w o" #'delete-other-windows)
+      "w o" #'delete-other-windows
+      
+      ;; LSP operations
+      "c d" #'lsp-find-definition
+      "c D" #'lsp-find-declaration
+      "c i" #'lsp-find-implementation
+      "c r" #'lsp-find-references
+      "c R" #'lsp-rename
+      "c a" #'lsp-execute-code-action
+      "c f" #'lsp-format-buffer
+      "c h" #'lsp-describe-thing-at-point)
 
 ;; Neovim-like auto-save behavior
 (setq auto-save-default t
@@ -102,6 +112,31 @@
   (map! :map company-active-map
         "C-j" #'company-select-next
         "C-k" #'company-select-previous))
+
+;; LSP settings
+(after! lsp-mode
+  (setq lsp-auto-guess-root t
+        lsp-prefer-flymake nil
+        lsp-file-watch-threshold 2000
+        lsp-semantic-tokens-enable t
+        lsp-enable-folding t
+        lsp-enable-imenu t
+        lsp-enable-snippet t
+        lsp-eldoc-render-all t
+        lsp-idle-delay 0.5
+        lsp-log-io nil)) ; Set to t for debugging LSP issues
+
+;; LSP UI settings
+(after! lsp-ui
+  (setq lsp-ui-peek-enable t
+        lsp-ui-doc-enable t
+        lsp-ui-doc-header t
+        lsp-ui-doc-include-signature t
+        lsp-ui-doc-position 'top
+        lsp-ui-doc-delay 0.5
+        lsp-ui-sideline-enable nil
+        lsp-ui-imenu-enable t
+        lsp-ui-flycheck-enable t))
 
 ;; Org-mode settings (if you use it)
 (after! org

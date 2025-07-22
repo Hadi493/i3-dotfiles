@@ -32,5 +32,18 @@
        (dired +icons)       ; making dired pretty [functional]
        undo                 ; persistent, smarter undo for your inevitable mistakes
 
+       :tools
+       (lsp +peek)          ; Language Server Protocol support
+       magit                ; a git porcelain for Emacs
+       
+       :lang
+       emacs-lisp           ; the lisp powering doom
+       json                 ; At least it ain't XML
+       markdown             ; writing docs for people to ignore
+       python               ; beautiful is better than ugly
+       sh                   ; she sells {ba,z,fi}sh shells on the C xor
+       web                  ; the tubes
+       yaml                 ; JSON, but readable
+
        :config
        (default +bindings +smartparens))
