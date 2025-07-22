@@ -138,6 +138,23 @@
         lsp-ui-imenu-enable t
         lsp-ui-flycheck-enable t))
 
+;; C/C++ LSP settings
+(after! lsp-clangd
+  (setq lsp-clangd-binary-path "/usr/bin/clangd"
+        lsp-clangd-server-command '("clangd" "--background-index" "--clang-tidy")
+        lsp-clients-clangd-args '("--header-insertion=iwyu"
+                                  "--completion-style=detailed"
+                                  "--function-arg-placeholders"
+                                  "--fallback-style=llvm")))
+
+;; C/C++ mode settings
+(after! cc-mode
+  (setq c-default-style "linux"
+        c-basic-offset 4)
+  ;; Auto-enable LSP for C/C++ files
+  (add-hook 'c-mode-hook #'lsp!)
+  (add-hook 'c++-mode-hook #'lsp!))
+
 ;; Org-mode settings (if you use it)
 (after! org
   (setq org-directory "~/org/"

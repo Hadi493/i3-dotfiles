@@ -45,4 +45,7 @@
 ;; (package! yaml-mode)
 ;; (package! dockerfile-mode)
 
+;; C/C++ development packages
+(package! bear)  ; For generating compile_commands.json
+
 ;;; packages.el ends here

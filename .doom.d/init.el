@@ -37,9 +37,11 @@
        magit                ; a git porcelain for Emacs
        
        :lang
+       (cc +lsp)            ; C/C++/Obj-C madness
        emacs-lisp           ; the lisp powering doom
        json                 ; At least it ain't XML
        markdown             ; writing docs for people to ignore
+       nasm                 ; assembly crufts
        python               ; beautiful is better than ugly
        sh                   ; she sells {ba,z,fi}sh shells on the C xor
        web                  ; the tubes
